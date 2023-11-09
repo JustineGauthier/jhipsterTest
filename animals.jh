@@ -1,0 +1,27 @@
+entity Animal {
+	name String
+    age Long
+    character String
+}
+
+entity Species {
+	name String
+    size Long
+}
+
+entity TypeOfHabitat {
+    categorie String
+    location String
+    ground String
+}
+
+relationship OneToMany {
+	Species to Animal
+}
+
+relationship ManyToMany {
+	TypeOfHabitat to Animal
+}
+
+dto Animal, Species, TypeOfHabitat with mapstruct
+service Animal, Species, TypeOfHabitat with serviceImpl

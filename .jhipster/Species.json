@@ -1,0 +1,28 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093415",
+  "dto": "mapstruct",
+  "entityTableName": "species",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "size",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Species",
+  "relationships": [
+    {
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "species",
+      "relationshipName": "animal",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

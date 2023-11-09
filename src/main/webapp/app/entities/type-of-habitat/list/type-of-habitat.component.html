@@ -1,0 +1,104 @@
+<div>
+  <h2 id="page-heading" data-cy="TypeOfHabitatHeading">
+    <span jhiTranslate="jhipsterTestApp.typeOfHabitat.home.title">TypeOfHabitats</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterTestApp.typeOfHabitat.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-type-of-habitat"
+        [routerLink]="['/type-of-habitat/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterTestApp.typeOfHabitat.home.createLabel">Créer un nouveau Type Of Habitat</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="typeOfHabitats?.length === 0">
+    <span jhiTranslate="jhipsterTestApp.typeOfHabitat.home.notFound">Aucun Type Of Habitat trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="typeOfHabitats && typeOfHabitats.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="categorie">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.typeOfHabitat.categorie">Categorie</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="location">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.typeOfHabitat.location">Location</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="ground">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.typeOfHabitat.ground">Ground</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="animal.id">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.typeOfHabitat.animal">Animal</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let typeOfHabitat of typeOfHabitats; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/type-of-habitat', typeOfHabitat.id, 'view']">{{ typeOfHabitat.id }}</a>
+          </td>
+          <td>{{ typeOfHabitat.categorie }}</td>
+          <td>{{ typeOfHabitat.location }}</td>
+          <td>{{ typeOfHabitat.ground }}</td>
+          <td>
+            <span *ngFor="let animal of typeOfHabitat.animals; let last = last">
+              <a class="form-control-static" [routerLink]="['/animal', animal.id, 'view']">{{ animal.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/type-of-habitat', typeOfHabitat.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </a>
+
+              <a [routerLink]="['/type-of-habitat', typeOfHabitat.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </a>
+
+              <button type="submit" (click)="delete(typeOfHabitat)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

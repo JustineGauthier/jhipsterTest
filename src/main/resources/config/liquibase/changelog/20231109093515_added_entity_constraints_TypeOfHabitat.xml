@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity TypeOfHabitat.
+    -->
+    <changeSet id="20231109093515-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="type_of_habitat_id"
+                                 baseTableName="rel_type_of_habitat__animal"
+                                 constraintName="fk_rel_type_of_habitat__animal__type_of_habitat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_of_habitat"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="animal_id"
+                                 baseTableName="rel_type_of_habitat__animal"
+                                 constraintName="fk_rel_type_of_habitat__animal__animal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="animal"
+                                 />
+    </changeSet>
+</databaseChangeLog>

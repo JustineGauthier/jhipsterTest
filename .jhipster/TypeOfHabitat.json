@@ -1,0 +1,32 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093515",
+  "dto": "mapstruct",
+  "entityTableName": "type_of_habitat",
+  "fields": [
+    {
+      "fieldName": "categorie",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "location",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ground",
+      "fieldType": "String"
+    }
+  ],
+  "name": "TypeOfHabitat",
+  "relationships": [
+    {
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "typeOfHabitat",
+      "relationshipName": "animal",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

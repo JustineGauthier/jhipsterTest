@@ -1,0 +1,27 @@
+{
+  "jhipsterTestApp": {
+    "typeOfHabitat": {
+      "home": {
+        "title": "Type Of Habitats",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Type Of Habitat",
+        "createOrEditLabel": "Create or edit a Type Of Habitat",
+        "notFound": "No Type Of Habitats found"
+      },
+      "created": "A new Type Of Habitat is created with identifier {{ param }}",
+      "updated": "A Type Of Habitat is updated with identifier {{ param }}",
+      "deleted": "A Type Of Habitat is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Type Of Habitat {{ id }}?"
+      },
+      "detail": {
+        "title": "Type Of Habitat"
+      },
+      "id": "ID",
+      "categorie": "Categorie",
+      "location": "Location",
+      "ground": "Ground",
+      "animal": "Animal"
+    }
+  }
+}

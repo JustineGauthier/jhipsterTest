@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093315",
+  "dto": "mapstruct",
+  "entityTableName": "animal",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "character",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Animal",
+  "relationships": [
+    {
+      "otherEntityName": "species",
+      "otherEntityRelationshipName": "animal",
+      "relationshipName": "species",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "typeOfHabitat",
+      "otherEntityRelationshipName": "animal",
+      "relationshipName": "typeOfHabitat",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

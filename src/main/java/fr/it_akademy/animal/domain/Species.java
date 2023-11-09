@@ -33,7 +33,7 @@ public class Species implements Serializable {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "species")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "species", "typeOfHabitats" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "species", "typeOfHabitats", "foods" }, allowSetters = true)
     private Set<Animal> animals = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

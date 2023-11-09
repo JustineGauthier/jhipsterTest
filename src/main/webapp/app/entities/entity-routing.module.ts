@@ -19,6 +19,11 @@ import { RouterModule } from '@angular/router';
         data: { pageTitle: 'jhipsterTestApp.typeOfHabitat.home.title' },
         loadChildren: () => import('./type-of-habitat/type-of-habitat.routes'),
       },
+      {
+        path: 'food',
+        data: { pageTitle: 'jhipsterTestApp.food.home.title' },
+        loadChildren: () => import('./food/food.routes'),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],

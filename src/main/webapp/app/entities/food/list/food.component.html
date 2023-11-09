@@ -1,0 +1,116 @@
+<div>
+  <h2 id="page-heading" data-cy="FoodHeading">
+    <span jhiTranslate="jhipsterTestApp.food.home.title">Foods</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterTestApp.food.home.refreshListLabel">Actualiser la liste</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-food"
+        [routerLink]="['/food/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterTestApp.food.home.createLabel">Créer un nouveau Food</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="foods?.length === 0">
+    <span jhiTranslate="jhipsterTestApp.food.home.notFound">Aucun Food trouvé</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="foods && foods.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.food.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="color">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.food.color">Color</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="peremptionDate">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.food.peremptionDate">Peremption Date</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="animal.id">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.food.animal">Animal</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="typeOfHabitat.id">
+            <div class="d-flex">
+              <span jhiTranslate="jhipsterTestApp.food.typeOfHabitat">Type Of Habitat</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let food of foods; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/food', food.id, 'view']">{{ food.id }}</a>
+          </td>
+          <td>{{ food.name }}</td>
+          <td>{{ food.color }}</td>
+          <td>{{ food.peremptionDate | formatMediumDatetime }}</td>
+          <td>
+            <span *ngFor="let animal of food.animals; let last = last">
+              <a class="form-control-static" [routerLink]="['/animal', animal.id, 'view']">{{ animal.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td>
+            <span *ngFor="let typeOfHabitat of food.typeOfHabitats; let last = last">
+              <a class="form-control-static" [routerLink]="['/type-of-habitat', typeOfHabitat.id, 'view']">{{ typeOfHabitat.id }}</a
+              >{{ last ? '' : ', ' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/food', food.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Voir</span>
+              </a>
+
+              <a [routerLink]="['/food', food.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editer</span>
+              </a>
+
+              <button type="submit" (click)="delete(food)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Supprimer</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

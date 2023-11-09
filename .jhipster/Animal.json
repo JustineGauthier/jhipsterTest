@@ -32,6 +32,13 @@
       "relationshipName": "typeOfHabitat",
       "relationshipSide": "right",
       "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "food",
+      "otherEntityRelationshipName": "animal",
+      "relationshipName": "food",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
     }
   ],
   "searchEngine": "no",

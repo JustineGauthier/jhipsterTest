@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Food.
+    -->
+    <changeSet id="20231109093315-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="food_id"
+                                 baseTableName="rel_food__animal"
+                                 constraintName="fk_rel_food__animal__food_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="food"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="animal_id"
+                                 baseTableName="rel_food__animal"
+                                 constraintName="fk_rel_food__animal__animal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="animal"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="food_id"
+                                 baseTableName="rel_food__type_of_habitat"
+                                 constraintName="fk_rel_food__type_of_habitat__food_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="food"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="type_of_habitat_id"
+                                 baseTableName="rel_food__type_of_habitat"
+                                 constraintName="fk_rel_food__type_of_habitat__type_of_habitat_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_of_habitat"
+                                 />
+    </changeSet>
+</databaseChangeLog>

@@ -24,6 +24,7 @@ describe('TypeOfHabitat Form Service', () => {
             location: expect.any(Object),
             ground: expect.any(Object),
             animals: expect.any(Object),
+            foods: expect.any(Object),
           }),
         );
       });
@@ -38,6 +39,7 @@ describe('TypeOfHabitat Form Service', () => {
             location: expect.any(Object),
             ground: expect.any(Object),
             animals: expect.any(Object),
+            foods: expect.any(Object),
           }),
         );
       });

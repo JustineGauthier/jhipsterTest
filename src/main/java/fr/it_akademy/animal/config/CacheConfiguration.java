@@ -54,6 +54,11 @@ public class CacheConfiguration {
             createCache(cm, fr.it_akademy.animal.domain.Species.class.getName() + ".animals");
             createCache(cm, fr.it_akademy.animal.domain.TypeOfHabitat.class.getName());
             createCache(cm, fr.it_akademy.animal.domain.TypeOfHabitat.class.getName() + ".animals");
+            createCache(cm, fr.it_akademy.animal.domain.Animal.class.getName() + ".foods");
+            createCache(cm, fr.it_akademy.animal.domain.Food.class.getName());
+            createCache(cm, fr.it_akademy.animal.domain.Food.class.getName() + ".animals");
+            createCache(cm, fr.it_akademy.animal.domain.Food.class.getName() + ".typeOfHabitats");
+            createCache(cm, fr.it_akademy.animal.domain.TypeOfHabitat.class.getName() + ".foods");
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -50,10 +50,10 @@ describe('TypeOfHabitat Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Animal query and add missing value', () => {
       const typeOfHabitat: ITypeOfHabitat = { id: 456 };
-      const animals: IAnimal[] = [{ id: 7123 }];
+      const animals: IAnimal[] = [{ id: 22284 }];
       typeOfHabitat.animals = animals;
 
-      const animalCollection: IAnimal[] = [{ id: 10614 }];
+      const animalCollection: IAnimal[] = [{ id: 17307 }];
       jest.spyOn(animalService, 'query').mockReturnValue(of(new HttpResponse({ body: animalCollection })));
       const additionalAnimals = [...animals];
       const expectedCollection: IAnimal[] = [...additionalAnimals, ...animalCollection];
@@ -72,7 +72,7 @@ describe('TypeOfHabitat Management Update Component', () => {
 
     it('Should update editForm', () => {
       const typeOfHabitat: ITypeOfHabitat = { id: 456 };
-      const animal: IAnimal = { id: 13354 };
+      const animal: IAnimal = { id: 18622 };
       typeOfHabitat.animals = [animal];
 
       activatedRoute.data = of({ typeOfHabitat });

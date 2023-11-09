@@ -21,7 +21,8 @@
       "categorie": "Categorie",
       "location": "Location",
       "ground": "Ground",
-      "animal": "Animal"
+      "animal": "Animal",
+      "food": "Food"
     }
   }
 }

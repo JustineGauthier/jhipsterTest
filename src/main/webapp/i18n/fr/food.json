@@ -1,0 +1,28 @@
+{
+  "jhipsterTestApp": {
+    "food": {
+      "home": {
+        "title": "Foods",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Food",
+        "createOrEditLabel": "Créer ou éditer un Food",
+        "notFound": "Aucun Food trouvé"
+      },
+      "created": "Un nouveau Food a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Food avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Food avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Food {{ id }} ?"
+      },
+      "detail": {
+        "title": "Food"
+      },
+      "id": "ID",
+      "name": "Name",
+      "color": "Color",
+      "peremptionDate": "Peremption Date",
+      "animal": "Animal",
+      "typeOfHabitat": "Type Of Habitat"
+    }
+  }
+}

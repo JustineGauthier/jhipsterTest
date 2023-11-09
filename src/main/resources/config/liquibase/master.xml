@@ -20,9 +20,11 @@
     <include file="config/liquibase/changelog/20231109093315_added_entity_Animal.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231109093415_added_entity_Species.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231109093515_added_entity_TypeOfHabitat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231109093315_added_entity_Food.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20231109093315_added_entity_constraints_Animal.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20231109093515_added_entity_constraints_TypeOfHabitat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20231109093315_added_entity_constraints_Food.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

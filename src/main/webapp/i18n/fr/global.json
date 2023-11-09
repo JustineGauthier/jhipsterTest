@@ -10,7 +10,8 @@
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
         "animal": "Animal",
         "species": "Species",
-        "typeOfHabitat": "Type Of Habitat"
+        "typeOfHabitat": "Type Of Habitat",
+        "food": "Food"
       },
       "account": {
         "main": "Compte",

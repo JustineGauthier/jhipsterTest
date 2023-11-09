@@ -15,12 +15,20 @@ entity TypeOfHabitat {
     ground String
 }
 
+entity Food {
+	name String
+    color String
+    peremptionDate Instant
+}
+
 relationship OneToMany {
 	Species to Animal
 }
 
 relationship ManyToMany {
 	TypeOfHabitat to Animal
+    Food to Animal
+    Food to TypeOfHabitat
 }
 
 dto Animal, Species, TypeOfHabitat with mapstruct

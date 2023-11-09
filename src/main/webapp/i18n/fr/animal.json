@@ -22,7 +22,8 @@
       "age": "Age",
       "character": "Character",
       "species": "Species",
-      "typeOfHabitat": "Type Of Habitat"
+      "typeOfHabitat": "Type Of Habitat",
+      "food": "Food"
     }
   }
 }

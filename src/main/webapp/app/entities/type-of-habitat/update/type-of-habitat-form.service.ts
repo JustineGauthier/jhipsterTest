@@ -14,7 +14,7 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type TypeOfHabitatFormGroupInput = ITypeOfHabitat | PartialWithRequiredKeyOf<NewTypeOfHabitat>;
 
-type TypeOfHabitatFormDefaults = Pick<NewTypeOfHabitat, 'id' | 'animals'>;
+type TypeOfHabitatFormDefaults = Pick<NewTypeOfHabitat, 'id' | 'animals' | 'foods'>;
 
 type TypeOfHabitatFormGroupContent = {
   id: FormControl<ITypeOfHabitat['id'] | NewTypeOfHabitat['id']>;
@@ -22,6 +22,7 @@ type TypeOfHabitatFormGroupContent = {
   location: FormControl<ITypeOfHabitat['location']>;
   ground: FormControl<ITypeOfHabitat['ground']>;
   animals: FormControl<ITypeOfHabitat['animals']>;
+  foods: FormControl<ITypeOfHabitat['foods']>;
 };
 
 export type TypeOfHabitatFormGroup = FormGroup<TypeOfHabitatFormGroupContent>;
@@ -45,6 +46,7 @@ export class TypeOfHabitatFormService {
       location: new FormControl(typeOfHabitatRawValue.location),
       ground: new FormControl(typeOfHabitatRawValue.ground),
       animals: new FormControl(typeOfHabitatRawValue.animals ?? []),
+      foods: new FormControl(typeOfHabitatRawValue.foods ?? []),
     });
   }
 
@@ -66,6 +68,7 @@ export class TypeOfHabitatFormService {
     return {
       id: null,
       animals: [],
+      foods: [],
     };
   }
 }

@@ -25,6 +25,7 @@ describe('Animal Form Service', () => {
             character: expect.any(Object),
             species: expect.any(Object),
             typeOfHabitats: expect.any(Object),
+            foods: expect.any(Object),
           }),
         );
       });
@@ -40,6 +41,7 @@ describe('Animal Form Service', () => {
             character: expect.any(Object),
             species: expect.any(Object),
             typeOfHabitats: expect.any(Object),
+            foods: expect.any(Object),
           }),
         );
       });

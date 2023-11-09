@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="food">
+      <h2 data-cy="foodDetailsHeading"><span jhiTranslate="jhipsterTestApp.food.detail.title">Food</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ food.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterTestApp.food.name">Name</span></dt>
+        <dd>
+          <span>{{ food.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterTestApp.food.color">Color</span></dt>
+        <dd>
+          <span>{{ food.color }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterTestApp.food.peremptionDate">Peremption Date</span></dt>
+        <dd>
+          <span>{{ food.peremptionDate | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterTestApp.food.animal">Animal</span></dt>
+        <dd>
+          <span *ngFor="let animal of food.animals; let last = last">
+            <a [routerLink]="['/animal', animal.id, 'view']">{{ animal.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+        <dt><span jhiTranslate="jhipsterTestApp.food.typeOfHabitat">Type Of Habitat</span></dt>
+        <dd>
+          <span *ngFor="let typeOfHabitat of food.typeOfHabitats; let last = last">
+            <a [routerLink]="['/type-of-habitat', typeOfHabitat.id, 'view']">{{ typeOfHabitat.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Retour</span>
+      </button>
+
+      <button type="button" [routerLink]="['/food', food.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editer</span>
+      </button>
+    </div>
+  </div>
+</div>

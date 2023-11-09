@@ -1,20 +1,21 @@
 import { ITypeOfHabitat, NewTypeOfHabitat } from './type-of-habitat.model';
 
 export const sampleWithRequiredData: ITypeOfHabitat = {
-  id: 13994,
+  id: 2944,
 };
 
 export const sampleWithPartialData: ITypeOfHabitat = {
-  id: 4195,
-  categorie: 'chef',
-  ground: 'dans assumer',
+  id: 2284,
+  categorie: 'puisque mourir',
+  location: 'devant',
+  ground: 'quand ? admirablement',
 };
 
 export const sampleWithFullData: ITypeOfHabitat = {
-  id: 13356,
-  categorie: 'boum',
-  location: 'ferme',
-  ground: 'areu areu',
+  id: 9354,
+  categorie: "louer à l'encontre de fonctionnaire",
+  location: 'entre-temps ci',
+  ground: 'à moins de multiple dissimuler',
 };
 
 export const sampleWithNewData: NewTypeOfHabitat = {

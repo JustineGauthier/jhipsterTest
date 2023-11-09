@@ -14,7 +14,7 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type AnimalFormGroupInput = IAnimal | PartialWithRequiredKeyOf<NewAnimal>;
 
-type AnimalFormDefaults = Pick<NewAnimal, 'id' | 'typeOfHabitats'>;
+type AnimalFormDefaults = Pick<NewAnimal, 'id' | 'typeOfHabitats' | 'foods'>;
 
 type AnimalFormGroupContent = {
   id: FormControl<IAnimal['id'] | NewAnimal['id']>;
@@ -23,6 +23,7 @@ type AnimalFormGroupContent = {
   character: FormControl<IAnimal['character']>;
   species: FormControl<IAnimal['species']>;
   typeOfHabitats: FormControl<IAnimal['typeOfHabitats']>;
+  foods: FormControl<IAnimal['foods']>;
 };
 
 export type AnimalFormGroup = FormGroup<AnimalFormGroupContent>;
@@ -47,6 +48,7 @@ export class AnimalFormService {
       character: new FormControl(animalRawValue.character),
       species: new FormControl(animalRawValue.species),
       typeOfHabitats: new FormControl(animalRawValue.typeOfHabitats ?? []),
+      foods: new FormControl(animalRawValue.foods ?? []),
     });
   }
 
@@ -68,6 +70,7 @@ export class AnimalFormService {
     return {
       id: null,
       typeOfHabitats: [],
+      foods: [],
     };
   }
 }

@@ -41,8 +41,13 @@ public class TypeOfHabitat implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "animal_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "species", "typeOfHabitats" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "species", "typeOfHabitats", "foods" }, allowSetters = true)
     private Set<Animal> animals = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "typeOfHabitats")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "animals", "typeOfHabitats" }, allowSetters = true)
+    private Set<Food> foods = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -118,6 +123,37 @@ public class TypeOfHabitat implements Serializable {
 
     public TypeOfHabitat removeAnimal(Animal animal) {
         this.animals.remove(animal);
+        return this;
+    }
+
+    public Set<Food> getFoods() {
+        return this.foods;
+    }
+
+    public void setFoods(Set<Food> foods) {
+        if (this.foods != null) {
+            this.foods.forEach(i -> i.removeTypeOfHabitat(this));
+        }
+        if (foods != null) {
+            foods.forEach(i -> i.addTypeOfHabitat(this));
+        }
+        this.foods = foods;
+    }
+
+    public TypeOfHabitat foods(Set<Food> foods) {
+        this.setFoods(foods);
+        return this;
+    }
+
+    public TypeOfHabitat addFood(Food food) {
+        this.foods.add(food);
+        food.getTypeOfHabitats().add(this);
+        return this;
+    }
+
+    public TypeOfHabitat removeFood(Food food) {
+        this.foods.remove(food);
+        food.getTypeOfHabitats().remove(this);
         return this;
     }
 

@@ -1,0 +1,37 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093315",
+  "entityTableName": "food",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "color",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "peremptionDate",
+      "fieldType": "Instant"
+    }
+  ],
+  "name": "Food",
+  "relationships": [
+    {
+      "otherEntityName": "animal",
+      "otherEntityRelationshipName": "food",
+      "relationshipName": "animal",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "typeOfHabitat",
+      "otherEntityRelationshipName": "food",
+      "relationshipName": "typeOfHabitat",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

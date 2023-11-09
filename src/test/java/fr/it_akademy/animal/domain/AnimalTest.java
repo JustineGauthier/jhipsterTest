@@ -1,6 +1,7 @@
 package fr.it_akademy.animal.domain;
 
 import static fr.it_akademy.animal.domain.AnimalTestSamples.*;
+import static fr.it_akademy.animal.domain.FoodTestSamples.*;
 import static fr.it_akademy.animal.domain.SpeciesTestSamples.*;
 import static fr.it_akademy.animal.domain.TypeOfHabitatTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -58,5 +59,27 @@ class AnimalTest {
         animal.setTypeOfHabitats(new HashSet<>());
         assertThat(animal.getTypeOfHabitats()).doesNotContain(typeOfHabitatBack);
         assertThat(typeOfHabitatBack.getAnimals()).doesNotContain(animal);
+    }
+
+    @Test
+    void foodTest() throws Exception {
+        Animal animal = getAnimalRandomSampleGenerator();
+        Food foodBack = getFoodRandomSampleGenerator();
+
+        animal.addFood(foodBack);
+        assertThat(animal.getFoods()).containsOnly(foodBack);
+        assertThat(foodBack.getAnimals()).containsOnly(animal);
+
+        animal.removeFood(foodBack);
+        assertThat(animal.getFoods()).doesNotContain(foodBack);
+        assertThat(foodBack.getAnimals()).doesNotContain(animal);
+
+        animal.foods(new HashSet<>(Set.of(foodBack)));
+        assertThat(animal.getFoods()).containsOnly(foodBack);
+        assertThat(foodBack.getAnimals()).containsOnly(animal);
+
+        animal.setFoods(new HashSet<>());
+        assertThat(animal.getFoods()).doesNotContain(foodBack);
+        assertThat(foodBack.getAnimals()).doesNotContain(animal);
     }
 }
